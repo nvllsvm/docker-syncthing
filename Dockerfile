@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-RUN apk update && apk add shadow syncthing su-exec
+RUN apk update && apk add syncthing su-exec
 
 EXPOSE 8384 22000 21027/UDP
 
