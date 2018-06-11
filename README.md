@@ -19,8 +19,11 @@ Yet another [Syncthing](https://github.com/syncthing/syncthing) Docker image.
 
 # Usage
 
+The network should be to ``host`` for best performance.
+
 ```
 $ docker run \
+    --net host \
     -e PUID=1000 \
     -e PGID=1000 \
     -p 8384:8384 \
