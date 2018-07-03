@@ -1,13 +1,11 @@
-FROM alpine:edge
+FROM syncthing/syncthing
 
-RUN apk update && apk add syncthing su-exec
+USER root
 
-EXPOSE 8384 22000 21027/UDP
+RUN apk update && apk add su-exec
 
-VOLUME /config
-VOLUME /folders
+ENV PUID=1000
+ENV PGID=1000
 
-HEALTHCHECK --timeout=10s CMD nc -z localhost 8384 || exit 1
-
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT chown $PUID:$PGID /var/syncthing \
+    && su-exec $PUID:$PGID /bin/syncthing -home /var/syncthing/config -gui-address 0.0.0.0:8384

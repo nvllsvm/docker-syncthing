@@ -1,4 +1,4 @@
-Yet another [Syncthing](https://github.com/syncthing/syncthing) Docker image.
+A [Syncthing](https://github.com/syncthing/syncthing) image with configurable UID and GID.
 
 # Environment Variables
 
@@ -8,8 +8,8 @@ Yet another [Syncthing](https://github.com/syncthing/syncthing) Docker image.
 
 # Volumes
 
-- ``/config`` - Syncthing configuration directory
-- ``/folders`` - Parent location of all folders to sync
+- ``/var/syncthing/config`` - Syncthing configuration directory
+- ``/var/syncthing/*`` - Parent location of all folders to sync
 
 # Ports
 
@@ -29,8 +29,8 @@ $ docker run \
     -p 8384:8384 \
     -p 22000:22000 \
     -p 21027:21027/udp \
-    -v /home/user/.config/.syncthing:/config \
-    -v /home/user/Documents:/folders/Documents \
-    -v /storage/Movies:/folders/Movies \
+    -v /home/user/.config/.syncthing:/var/syncthing/config \
+    -v /home/user/Documents:/var/syncthing/folders/Documents \
+    -v /storage/Movies:/var/syncthing/folders/Movies \
     nvllsvm/syncthing
 ```
