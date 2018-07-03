@@ -9,7 +9,7 @@ A [Syncthing](https://github.com/syncthing/syncthing) image with configurable UI
 # Volumes
 
 - ``/var/syncthing/config`` - Syncthing configuration directory
-- ``/var/syncthing/*`` - Parent location of all folders to sync
+- ``/var/syncthing/`` - Parent of synchronized folders
 
 # Ports
 
