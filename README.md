@@ -1,3 +1,5 @@
+**Deprecated** - The upstream image now supports UID and GID.
+
 A [Syncthing](https://github.com/syncthing/syncthing) image with configurable UID and GID.
 
 # Environment Variables
